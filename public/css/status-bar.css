@@ -1,0 +1,54 @@
+.status-bar {
+    background: #000;
+    color: #fff;
+    padding: 2px 12px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.status-bar .left {
+    flex: 0 0 auto;
+}
+
+.status-bar .time {
+    font-weight: 500;
+}
+
+.status-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 图标基础样式 */
+.status-bar .network-icon,
+.status-bar .battery-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.status-bar .network-icon svg,
+.status-bar .battery-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* 修改为直接使用 SVG 背景图 */
+.status-bar .network-icon.wifi {
+    background: #fff;
+    -webkit-mask-image: url('/resources/icons/wifi.svg');
+    mask-image: url('/resources/icons/wifi.svg');
+}
+
+.status-bar .battery-icon {
+    background: #fff;
+    -webkit-mask-image: url('/resources/icons/battery.svg');
+    mask-image: url('/resources/icons/battery.svg');
+}

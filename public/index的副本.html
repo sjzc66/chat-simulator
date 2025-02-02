@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对话模拟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="chat-preview">
+            <div class="status-bar">
+                <div class="left">${this.state.carrier} 21:07</div>
+                <div class="right">
+                    <svg class="signal-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M2 22h2V10H2v12zm4 0h2V4H6v18zm4 0h2V16h-2v6zm4 0h2V10h-2v12zm4 0h2V4h-2v18z"/>
+                    </svg>
+                    <svg class="wifi-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"/>
+                    </svg>
+                    <div class="status-bar">
+                        <div class="left">中国移动 21:07</div>
+                        <div class="right">
+                            <span class="signal">信号</span>
+                            <span class="wifi">WiFi</span>
+                            <span class="battery">65%</span>
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <div class="time">21:07</div>
+                        <div class="carrier">
+                            <span class="signal-icon"></span>
+                            <div class="left">
+                                <span class="phone-time">21:07</span>
+                            </div>
+                            <div class="center">
+                                <span class="signal-icon"></span>
+                                <span class="carrier">中国移动</span>
+                            </div>
+                            <div class="right">
+                                <span>信号</span>
+                                <span>WiFi</span>
+                                <span class="battery">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-header">
+                <div class="back">
+                    <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                    <span class="unread-count">10</span>
+                </div>
+                <span class="title">对</span>
+                <span class="more">⋯</span>
+            </div>
+
+            <div class="chat-content" id="chatContainer"></div>
+
+            <div class="chat-footer">
+                <img src="/resources/image/bottom.png" alt="bottom" class="bottom-image">
+            </div>
+        </div>
+
+        <div class="settings-tabs">
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="appearance">外观设置</button>
+                <button class="tab-btn" data-tab="chat">对话设置</button>
+            </div>
+
+            <div id="appearanceSettings">
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <label>时间：</label>
+                        <input type="time" id="phoneTime" value="21:07">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>运营商：</label>
+                        <select id="carrier">
+                            <option value="中国移动">中国移动</option>
+                            <option value="中国联通">中国联通</option>
+                            <option value="中国电信">中国电信</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>网络信号：</label>
+                        <select id="networkType">
+                            <option value="Wifi">Wifi</option>
+                            <option value="5G">5G</option>
+                            <option value="4G">4G</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>电量：</label>
+                        <input type="range" id="battery" min="0" max="100" value="65">
+                        <span id="batteryValue">65%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>未读消息数：</label>
+                        <input type="number" id="unreadCount" min="0" max="99" value="5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="chatSettings" style="display: none;">
+                <div class="chat-form">
+                    <div class="user-input">
+                        <textarea id="messageContent" placeholder="输入聊天内容"></textarea>
+                        <button id="addTextMsg" class="btn">添加对话</button>
+                    </div>
+                </div>
+
+                <div class="bottom-actions">
+                    <button id="addUser" class="btn">添加用户</button>
+                    <button id="clearChat" class="btn">清除对话</button>
+                    <button id="generateImage" class="btn primary">生成图片</button>
+                    <button id="back" class="btn">返回</button>
+                    <button id="more" class="btn">更多</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对话模拟</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/status-bar.css">
+    <link rel="stylesheet" href="css/chat-header.css">
+    <link rel="stylesheet" href="css/chat-content.css">
+    <link rel="stylesheet" href="css/chat-footer.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/chat-settings.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="chat-preview">
+            <div class="status-bar">
+                <div class="left">
+                    <div class="time">21:07</div>
+                </div>
+                <div class="right">
+                    <span class="carrier-text">中国移动</span>
+                    <span class="network-icon"></span>
+                    <span class="battery-text">65%</span>
+                    <span class="battery-icon"></span>
+                </div>
+            </div>
+
+            <div class="chat-header">
+                <div class="back">
+                    <span class="back-icon"></span>
+                    <span class="unread-count">10</span>
+                </div>
+                <span class="title">聊天人名称</span>
+                <span class="more">⋯</span>
+            </div>
+
+            <div class="chat-content" id="chatContainer"></div>
+
+            <div class="chat-footer">
+                <img src="/resources/image/bottom.png" alt="bottom" class="bottom-image">
+            </div>
+        </div>
+
+        <div class="settings-tabs">
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="appearance">外观设置</button>
+                <button class="tab-btn" data-tab="chat">对话设置</button>
+            </div>
+
+            <div id="appearanceSettings">
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <label>聊天标题：</label>
+                        <input type="text" id="chatTitle" value="聊天人名称">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>时间：</label>
+                        <input type="time" id="phoneTime" value="21:07">
+                    </div>
+
+                    <div class="setting-item">
+                        <label>运营商：</label>
+                        <select id="carrier">
+                            <option value="中国移动">中国移动</option>
+                            <option value="中国联通">中国联通</option>
+                            <option value="中国电信">中国电信</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>网络信号：</label>
+                        <select id="networkType">
+                            <option value="Wifi">Wifi</option>
+                            <option value="5G">5G</option>
+                            <option value="4G">4G</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>电量：</label>
+                        <input type="range" id="battery" min="0" max="100" value="65">
+                        <span id="batteryValue">65%</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <label>未读消息数：</label>
+                        <input type="number" id="unreadCount" min="0" max="99" value="5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 在 chatSettings 中的 user-input 前添加 -->
+            <!-- 修改用户列表和操作按钮部分 -->
+            <div id="chatSettings" style="display: none;">
+                <div class="chat-form">
+                    <div class="user-input">
+                        <textarea id="messageContent" placeholder="输入聊天内容"></textarea>
+                        <div class="input-actions">
+                            <button id="addTextMsg" class="btn">添加对话</button>
+                            <div class="image-upload">
+                                <input type="file" id="imageInput" accept="image/*">
+                                <button id="addImageMsg" class="btn">发送图片</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="user-section">
+                    <div class="user-header">
+                        <h3>当前用户列表：</h3>
+                        <div class="user-actions">
+                            <button id="addUser" class="action-btn">添加用户</button>
+                            <button class="upload-btn action-btn">更换头像</button>
+                            <input type="file" id="avatarInput" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="user-list">
+                        <!-- 用户列表会动态插入这里 -->
+                    </div>
+                </div>
+            
+                <div class="bottom-actions">
+                    <button id="clearChat">清除对话</button>
+                    <button id="generateImage" class="primary-btn">生成图片</button>
+                    <button id="back">返回</button>
+                    <button id="more">更多</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="js/Icons.js"></script>
+    <script src="js/StatusBar.js"></script>
+    <script src="js/ChatHeader.js"></script>
+    <script src="js/ChatContent.js"></script>
+    <script src="js/SettingsPanel.js"></script>
+    <script src="js/UserManager.js"></script>
+    <script src="js/MessageManager.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* 聊天头部样式 */
+.chat-header {
+    background: #f8f8f8;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    font-size: 17px;
+    position: relative;
+}
+
+.chat-header .back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 1;
+}
+
+.chat-header .back-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.chat-header .back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chat-header .unread-count {
+    background: #e6e6e6;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.chat-header .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: normal;
+}
+
+.chat-header .more {
+    font-size: 24px;
+    line-height: 1;
+    z-index: 1;
+}

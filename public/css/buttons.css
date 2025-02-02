@@ -1,0 +1,24 @@
+/* 按钮样式 */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f7f7f7;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+}
+
+.btn.primary {
+    background: #07c160;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #06ae56;
+}

@@ -1,0 +1,53 @@
+/* 聊天内容区域样式 */
+.chat-content {
+    background: #f1f1f1;
+    min-height: 400px;
+    padding: 15px 0;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 8px 15px;
+}
+
+.message .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.message-content {
+    max-width: 70%;
+    margin: 0 12px;
+}
+
+.message-content span {
+    display: inline-block;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.4;
+    word-break: break-all;
+    background: #fff;
+}
+
+.message.sent {
+    flex-direction: row-reverse;
+}
+
+.message.sent .message-content span {
+    background: #95ec69;
+}
+
+.chat-image {
+    max-width: 200px;
+    border-radius: 4px;
+    display: block;
+}
+
+.message.sent .chat-image {
+    float: right;
+}

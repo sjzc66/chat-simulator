@@ -1,0 +1,600 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f7f7f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 容器样式 */
+.app-container {
+    max-width: 414px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    min-height: 100vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 聊天预览区域样式 */
+.chat-preview {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.status-bar {
+    background: #000;
+    color: #fff;
+    padding: 2px 12px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.status-bar .left {
+    flex: 0 0 auto;
+}
+
+.status-bar .time {
+    font-weight: 500;
+}
+
+.status-bar .center {
+    flex: 1;
+    text-align: center;
+}
+
+.status-bar .right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 删除其他所有 .status-bar 相关的重复样式 */
+
+/* 时间样式 */
+.status-bar .time {
+    font-weight: 500;
+}
+
+/* 右侧图标组 */
+.status-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 信号图标 */
+.signal-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+}
+
+/* WiFi图标 */
+.network-icon.wifi {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 6C8.62 6 5.5 7.12 2.88 9L1.4 7.58C4.42 5.32 8.06 4 12 4c3.94 0 7.58 1.32 10.6 3.58L21.12 9C18.5 7.12 15.38 6 12 6zm0 4c-2.33 0-4.32.8-6 2.12l-1.48-1.48C6.38 9.1 9.06 8 12 8s5.62 1.1 7.48 2.64l-1.48 1.48C16.32 10.8 14.33 10 12 10zm0 4c-1.05 0-2.05.2-3 .57L7.5 13.12C8.87 12.41 10.38 12 12 12s3.13.41 4.5 1.12l-1.5 1.45C13.05 14.2 12.05 14 12 14z"/></svg>') no-repeat center;
+}
+
+/* 电池图标 */
+.battery-icon {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect fill="none" stroke="white" x="2" y="6" width="18" height="12" rx="2"/><rect fill="white" x="4" y="8" width="14" height="8"/><path fill="white" d="M22 11v2c.5 0 1-.4 1-1s-.5-1-1-1z"/></svg>') no-repeat center;
+}
+
+/* 删除其他所有重复的状态栏相关样式 */
+.carrier-wrapper, .network-wrapper, .battery-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.battery-icon {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect fill="none" stroke="white" x="2" y="6" width="18" height="12" rx="2"/><rect fill="white" x="4" y="8" width="14" height="8"/><path fill="white" d="M22 11v2c.5 0 1-.4 1-1s-.5-1-1-1z"/></svg>') no-repeat center;
+}
+
+.network-icon.wifi {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 6C8.62 6 5.5 7.12 2.88 9L1.4 7.58C4.42 5.32 8.06 4 12 4c3.94 0 7.58 1.32 10.6 3.58L21.12 9C18.5 7.12 15.38 6 12 6zm0 4c-2.33 0-4.32.8-6 2.12l-1.48-1.48C6.38 9.1 9.06 8 12 8s5.62 1.1 7.48 2.64l-1.48 1.48C16.32 10.8 14.33 10 12 10zm0 4c-1.05 0-2.05.2-3 .57L7.5 13.12C8.87 12.41 10.38 12 12 12s3.13.41 4.5 1.12l-1.5 1.45C13.05 14.2 12.05 14 12 14z"/></svg>') no-repeat center;
+}
+
+.network-icon.cellular {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+}
+
+.signal-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+}
+
+/* 移除之前的 .wifi 和 .signal::before 相关样式 */
+.status-bar .right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-bar .carrier {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-bar .carrier::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+    vertical-align: -3px;
+}
+
+.status-bar .center {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    justify-content: center;
+}
+
+.status-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-bar .time {
+    flex: 0 0 auto;
+    margin-right: 8px;
+}
+
+.status-bar .carrier {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.status-bar .left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.signal-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+    vertical-align: -3px;
+}
+
+.status-bar .time {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.status-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-bar .signal::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1 12h2v2H1v-2zm3-3h2v5H4V9zm3-3h2v8H7V6zm3-3h2v11h-2V3zm3-3h2v14h-2V0z"/></svg>') no-repeat center;
+    vertical-align: -3px;
+}
+
+.status-bar .wifi {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 6C8.62 6 5.5 7.12 2.88 9L1.4 7.58C4.42 5.32 8.06 4 12 4c3.94 0 7.58 1.32 10.6 3.58L21.12 9C18.5 7.12 15.38 6 12 6zm0 4c-2.33 0-4.32.8-6 2.12l-1.48-1.48C6.38 9.1 9.06 8 12 8s5.62 1.1 7.48 2.64l-1.48 1.48C16.32 10.8 14.33 10 12 10zm0 4c-1.05 0-2.05.2-3 .57L7.5 13.12C8.87 12.41 10.38 12 12 12s3.13.41 4.5 1.12l-1.5 1.45C13.05 14.2 12.05 14 12 14z"/></svg>') no-repeat center;
+    vertical-align: -3px;
+}
+
+.status-bar .battery {
+    display: flex;
+    align-items: center;
+}
+
+.status-bar .battery::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect fill="none" stroke="white" x="2" y="6" width="18" height="12" rx="2"/><rect fill="white" x="4" y="8" width="14" height="8"/><path fill="white" d="M22 11v2c.5 0 1-.4 1-1s-.5-1-1-1z"/></svg>') no-repeat center;
+    margin-left: 4px;
+}
+
+.status-bar .right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-bar svg {
+    fill: #fff;
+    display: block;
+}
+
+.signal-icon {
+    margin-right: 2px;
+}
+
+.wifi-icon {
+    margin: 0 2px;
+    transform: scale(0.9);
+}
+
+.chat-header {
+    background: #f8f8f8;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    font-size: 17px;
+}
+
+.chat-header .back {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.back-icon {
+    fill: #000;
+}
+
+.chat-header .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chat-header .more {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.unread-count {
+    background: #e6e6e6;  /* 更改为更接近微信的灰色 */
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 15px;
+    min-width: 20px;
+    text-align: center;
+    color: #1a1a1a;  /* 更深的文字颜色 */
+}
+
+.chat-content {
+    background: #f1f1f1;
+    min-height: 400px;
+    padding: 15px 0;
+    overflow-y: auto;
+    margin-bottom: -1px;
+}
+
+/* 消息样式（更新后的版本） */
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 8px 0;
+    padding: 0 15px;
+}
+
+.message .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.message .content {
+    max-width: 70%;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.4;
+    word-break: break-all;
+    background: #fff;
+    margin-top: 2px;
+}
+
+.message:not(.sent) .avatar {
+    margin-right: 8px;
+}
+
+.message.sent {
+    flex-direction: row-reverse;
+}
+
+.message.sent .avatar {
+    margin-left: 8px;
+}
+
+.message.sent .content {
+    background: #95ec69;
+}
+
+/* 底部样式 */
+.chat-footer {
+    background: #fff;
+    font-size: 0;
+}
+
+.chat-footer .bottom-image {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 控制面板样式 */
+.control-panel {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+/* 设置面板样式 */
+.settings-tabs {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tab-header {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    color: #07c160;
+    border-bottom: 2px solid #07c160;
+}
+
+/* 用户列表样式 */
+.user-list {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.user-item:hover {
+    background: #f5f5f5;
+}
+
+.user-item.active {
+    background: #e8f5e9;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* 表单元素样式 */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+/* 按钮样式 */
+.bottom-actions {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.bottom-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #f8f8f8;
+    cursor: pointer;
+}
+
+.bottom-actions .primary-btn {
+    background: #07c160;
+    color: #fff;
+}
+
+/* 统一按钮样式 */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f7f7f7;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+}
+
+.btn.primary {
+    background: #07c160;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #06ae56;
+}
+
+/* 按钮布局样式 */
+.bottom-actions {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    padding: 0 15px;
+}
+
+.bottom-actions button {
+    padding: 8px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    background: #f8f8f8;
+    cursor: pointer;
+    color: #333;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.4;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-actions .primary-btn {
+    background: #07c160;
+    color: #fff;
+}
+
+.bottom-actions button:hover {
+    background: #f0f0f0;
+}
+
+.bottom-actions .primary-btn:hover {
+    background: #06ae56;
+}
+
+/* 标签页按钮特殊样式 */
+.tab-btn {
+    composes: btn;
+    flex: 1;
+    border-radius: 0;
+    background: none;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.tab-btn.active {
+    color: #07c160;
+    border-bottom: 2px solid #07c160;
+}
+
+/* 删除其他重复的按钮样式 */
+/* 聊天头部样式 */
+.chat-header .back {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.back-arrow {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: solid #000;
+    border-width: 0 0 2px 2px;
+    transform: rotate(45deg);
+    margin-right: 4px;
+}
+
+.unread-badge {
+    background: #F1F1F1;
+    border-radius: 13px;
+    padding: 2px 8px;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unread-count {
+    font-size: 15px;
+    color: #333;
+    line-height: 1;
+}
+
+/* 表单元素样式 */
+.setting-item input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    text-align: center;
+}
+/* 添加时间输入框样式 */
+.setting-item input[type="time"] {
+    padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 14px;
+}

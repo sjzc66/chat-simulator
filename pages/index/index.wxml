@@ -1,0 +1,3 @@
+<view class="container">
+  <button class="launch-btn" bindtap="launchChat">开始对话模拟</button>
+</view>

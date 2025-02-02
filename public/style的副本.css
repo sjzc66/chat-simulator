@@ -1,0 +1,500 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f7f7f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 容器样式 */
+.app-container {
+    max-width: 414px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    min-height: 100vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 聊天预览区域样式 */
+.chat-preview {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.status-bar {
+    background: #000;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header {
+    background: #f8f8f8;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* 删除原有的 .toolbar 相关样式 */
+
+/* 添加新的底部样式 */
+.chat-footer {
+    background: #fff;
+    font-size: 0; /* 消除图片底部间隙 */
+}
+
+.chat-footer .bottom-image {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 调整聊天内容区域，确保和底部图片无缝衔接 */
+.chat-content {
+    background: #f1f1f1;
+    min-height: 400px;
+    padding: 15px 0;
+    overflow-y: auto;
+    margin-bottom: -1px; /* 消除可能的边框间隙 */
+}
+
+/* 消息样式 */
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 8px 0;
+    padding: 0 15px;
+}
+
+.message .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.message .content {
+    max-width: 70%;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.4;
+    word-break: break-all;
+    background: #fff;
+    margin-top: 2px;
+}
+
+.message:not(.sent) .avatar {
+    margin-right: 8px;
+}
+
+.message.sent {
+    flex-direction: row-reverse;
+}
+
+.message.sent .avatar {
+    margin-left: 8px;
+}
+
+.message.sent .content {
+    background: #95ec69;
+}
+
+/* 控制面板样式 */
+.control-panel {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+/* 设置面板样式 */
+.settings-tabs {
+    margin-bottom: 15px;
+}
+
+.tab-header {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    color: #07c160;
+    border-bottom: 2px solid #07c160;
+}
+
+/* 用户列表样式 */
+.user-list {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.user-item:hover {
+    background: #f5f5f5;
+}
+
+.user-item.active {
+    background: #e8f5e9;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f7f7f7;
+    color: #333;
+    cursor: pointer;
+}
+
+.action-btn.primary {
+    background: #07c160;
+    color: #fff;
+}
+
+/* 聊天设置表单 */
+.chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.avatar-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.avatar-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.message-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.message-actions button {
+    padding: 8px;
+    border: none;
+    background: #f7f7f7;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message {
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.message.sent {
+    flex-direction: row-reverse;
+}
+
+.message .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 0 10px;
+}
+
+.message .content {
+    max-width: 70%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    word-break: break-all;
+}
+
+.message.sent .content {
+    background: #95ec69;
+}
+
+/* 底部工具栏样式 */
+.toolbar {
+    height: 50px;
+    background: #f7f7f7;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+}
+
+.toolbar > div {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 设置面板样式 */
+.settings-panel {
+    background: #fff;
+    padding: 15px;
+}
+
+.tab-header {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tab.active {
+    color: #07c160;
+    border-bottom: 2px solid #07c160;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.setting-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.setting-item label {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.setting-item select,
+.setting-item input[type="text"],
+.setting-item input[type="number"] {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+.setting-item input[type="range"] {
+    flex: 1;
+}
+
+/* 底部按钮样式 */
+.bottom-buttons {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.bottom-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.bottom-buttons button.primary {
+    background: #07c160;
+    color: #fff;
+}
+
+.bottom-buttons button:not(.primary) {
+    background: #f7f7f7;
+    color: #333;
+}
+
+/* 特殊消息样式 */
+.red-packet,
+.transfer {
+    background: #fa9d3b;
+    color: white;
+    padding: 20px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.voice-message {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.background-upload {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/* 添加到现有样式文件末尾 */
+.user-list {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.user-item:hover {
+    background: #f5f5f5;
+}
+
+.user-item.active {
+    background: #e8f5e9;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.message {
+    /* 基础消息样式 */
+    /* 删除所有重复的 .message 相关样式，只保留以下统一定义 */
+    
+    /* 基础消息容器 */
+    .message {
+        display: flex;
+        align-items: flex-start;
+        margin: 15px 0;
+        padding: 0 15px;
+    }
+    
+    /* 头像样式 */
+    .message .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+    
+    /* 消息内容样式 */
+    .message .content {
+        max-width: 70%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 1.4;
+        word-break: break-all;
+        background: #fff;
+    }
+    
+    /* 其他人消息 */
+    .message:not(.sent) {
+        flex-direction: row;
+    }
+    
+    .message:not(.sent) .avatar {
+        margin-right: 12px;
+    }
+    
+    /* 本人消息 */
+    .message.sent {
+        flex-direction: row-reverse;
+    }
+    
+    .message.sent .avatar {
+        margin-left: 12px;
+    }
+    
+    .message.sent .content {
+        background: #95ec69;
+    }
+    
+    /* 聊天区域背景 */
+    .chat-content {
+        background: #f1f1f1;
+        min-height: 400px;
+        padding: 15px 0;
+        overflow-y: auto;
+    }
+}
