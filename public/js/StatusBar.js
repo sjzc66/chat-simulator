@@ -28,14 +28,20 @@ class StatusBar {
         return icons[type] || icons['Wifi'];
     }
 
+    getBatteryIcon() {
+        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="1" y="4" width="12" height="8" rx="1" stroke="currentColor" fill="none"/>
+            <rect x="13" y="6" width="2" height="4" rx="0.5" fill="currentColor"/>
+            <rect x="2" y="5" width="10" height="6" fill="currentColor"/>
+        </svg>`;
+    }
+
     initIcons() {
-        // 电池图标
+        if (this.networkIcon) {
+            this.networkIcon.innerHTML = this.getNetworkIcon('Wifi');
+        }
         if (this.batteryIcon) {
-            this.batteryIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <rect x="1" y="4" width="12" height="8" rx="1" stroke="currentColor" fill="none"/>
-                <rect x="13" y="6" width="2" height="4" rx="0.5" fill="currentColor"/>
-                <rect x="2" y="5" width="10" height="6" fill="currentColor"/>
-            </svg>`;
+            this.batteryIcon.innerHTML = this.getBatteryIcon();
         }
     }
 

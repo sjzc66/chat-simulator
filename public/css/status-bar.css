@@ -11,17 +11,31 @@
 }
 
 .status-bar .left {
-    flex: 0 0 auto;
+    flex: 0 0 80px;
 }
 
 .status-bar .time {
     font-weight: 500;
 }
 
+.status-bar .center {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .status-bar .right {
     display: flex;
     align-items: center;
-    gap: 4px;
+}
+
+.status-bar .carrier-text {
+    margin-right: 0;  /* 移除右边距 */
+}
+
+.status-bar .network-icon {
+    margin-left: 2px;  /* 添加很小的左边距 */
 }
 
 /* 图标基础样式 */
@@ -40,15 +54,6 @@
     height: 16px;
 }
 
-/* 修改为直接使用 SVG 背景图 */
-.status-bar .network-icon.wifi {
-    background: #fff;
-    -webkit-mask-image: url('/resources/icons/wifi.svg');
-    mask-image: url('/resources/icons/wifi.svg');
-}
-
-.status-bar .battery-icon {
-    background: #fff;
-    -webkit-mask-image: url('/resources/icons/battery.svg');
-    mask-image: url('/resources/icons/battery.svg');
+.battery-text {
+    margin-left: 4px;
 }
