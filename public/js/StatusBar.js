@@ -32,7 +32,9 @@ class StatusBar {
         // 电池图标
         if (this.batteryIcon) {
             this.batteryIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2 6h10v4H2V6zm11 1h1v2h-1V7zM1 5v6h12V5H1zm13 2v2h2V7h-2z" fill="currentColor"/>
+                <rect x="1" y="4" width="12" height="8" rx="1" stroke="currentColor" fill="none"/>
+                <rect x="13" y="6" width="2" height="4" rx="0.5" fill="currentColor"/>
+                <rect x="2" y="5" width="10" height="6" fill="currentColor"/>
             </svg>`;
         }
     }
