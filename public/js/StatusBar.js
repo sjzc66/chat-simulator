@@ -1,79 +1,63 @@
 class StatusBar {
-    constructor(container) {
-        this.container = container;
-        this.elements = {
-            time: container.querySelector('.time'),
-            carrier: container.querySelector('.carrier-text'),
-            battery: container.querySelector('.battery-text'),
-            network: container.querySelector('.network-icon')
+    constructor(element) {
+        this.element = element;
+        this.initElements();
+        this.initIcons();
+    }
+
+    initElements() {
+        this.timeElement = this.element.querySelector('.time');
+        this.carrierElement = this.element.querySelector('.carrier-text');
+        this.networkIcon = this.element.querySelector('.network-icon');
+        this.batteryText = this.element.querySelector('.battery-text');
+        this.batteryIcon = this.element.querySelector('.battery-icon');
+    }
+
+    getNetworkIcon(type) {
+        const icons = {
+            'Wifi': `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-2.5-4a4 4 0 0 1 5 0l1-1a5.5 5.5 0 0 0-7 0l1 1zm-2-2a7 7 0 0 1 9 0l1-1a8.5 8.5 0 0 0-11 0l1 1z" fill="currentColor"/>
+            </svg>`,
+            '5G': `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 14h2V8H2v6zm3 0h2V6H5v8zm3 0h2V4H8v10zm3 0h2V2h-2v12z" fill="currentColor"/>
+            </svg>`,
+            '4G': `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 14h2V8H2v6zm3 0h2V6H5v8zm3 0h2V4H8v10zm3 0h2V2h-2v12z" fill="currentColor"/>
+            </svg>`
         };
+        return icons[type] || icons['Wifi'];
+    }
+
+    initIcons() {
+        // 电池图标
+        if (this.batteryIcon) {
+            this.batteryIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 6h10v4H2V6zm11 1h1v2h-1V7zM1 5v6h12V5H1zm13 2v2h2V7h-2z" fill="currentColor"/>
+            </svg>`;
+        }
     }
 
     update(state) {
-        this.updateTime(state.phoneTime);
-        this.updateCarrier(state.carrier);
-        this.updateBattery(state.battery);
-        this.updateNetwork(state.networkType);
-    }
+        if (!state) return;
 
-    updateNetwork(type) {
-        if (this.elements.network) {
-            const networkType = type.toLowerCase();
-            if (networkType === 'wifi') {
-                this.elements.network.innerHTML = Icons.wifi();
-            } else {
-                this.elements.network.innerHTML = Icons.signal();
-            }
+        // 更新时间
+        if (this.timeElement && state.phoneTime) {
+            this.timeElement.textContent = state.phoneTime;
         }
-    }
 
-    getWifiSvg() {
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2c-3.1 0-5.9 1-8 2.7l.8.8C3 4 5.4 3 8 3s5 1 7.2 2.5l.8-.8C13.9 3 11.1 2 8 2z" fill="white"/>
-            <path d="M8 5c-2.3 0-4.3.7-6 2l.8.8C4.2 6.7 6 6 8 6s3.8.7 5.2 1.8l.8-.8c-1.7-1.3-3.7-2-6-2z" fill="white"/>
-            <path d="M8 8c-1.5 0-2.8.5-3.9 1.3l3.9 3.9 3.9-3.9C10.8 8.5 9.5 8 8 8z" fill="white"/>
-        </svg>`;
-    }
-
-    get5GSvg() {
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <g transform="translate(1, 3)">
-                <rect x="0" y="8" width="1" height="4" fill="white"/>
-                <rect x="3" y="6" width="1" height="6" fill="white"/>
-                <rect x="6" y="4" width="1" height="8" fill="white"/>
-                <rect x="9" y="2" width="1" height="10" fill="white"/>
-                <rect x="12" y="0" width="1" height="12" fill="white"/>
-            </g>
-        </svg>`;
-    }
-
-    get4GSvg() {
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <g transform="translate(1, 3)">
-                <rect x="0" y="8" width="1" height="4" fill="white"/>
-                <rect x="3" y="6" width="1" height="6" fill="white"/>
-                <rect x="6" y="4" width="1" height="8" fill="white"/>
-                <rect x="9" y="2" width="1" height="10" fill="white"/>
-                <rect x="12" y="0" width="1" height="12" fill="white"/>
-            </g>
-        </svg>`;
-    }
-
-    updateTime(time) {
-        if (this.elements.time) {
-            this.elements.time.textContent = time;
+        // 更新运营商
+        if (this.carrierElement && state.carrier) {
+            this.carrierElement.textContent = state.carrier;
         }
-    }
 
-    updateCarrier(carrier) {
-        if (this.elements.carrier) {
-            this.elements.carrier.textContent = carrier;
+        // 更新网络图标
+        if (this.networkIcon && state.networkType) {
+            this.networkIcon.innerHTML = this.getNetworkIcon(state.networkType);
         }
-    }
 
-    updateBattery(battery) {
-        if (this.elements.battery) {
-            this.elements.battery.textContent = `${battery}%`;
+        // 更新电池百分比
+        if (this.batteryText && state.battery) {
+            this.batteryText.textContent = `${state.battery}%`;
         }
     }
 }
