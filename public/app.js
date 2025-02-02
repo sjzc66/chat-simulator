@@ -22,6 +22,7 @@ class ChatSimulator {
         this.statusBar = new StatusBar(document.querySelector('.status-bar'));
         this.chatHeader = new ChatHeader(document.querySelector('.chat-header'));
         this.chatContent = new ChatContent(document.getElementById('chatContainer'));
+        this.chatFooter = new ChatFooter(document.querySelector('.chat-footer'));
         this.settingsPanel = new SettingsPanel(document.querySelector('.settings-tabs'));
         this.userManager = new UserManager();
         this.messageManager = new MessageManager(this.chatContent);
