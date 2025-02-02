@@ -83,3 +83,5 @@ class MessageManager {
         return true;
     }
 }
+// 修改图片路径前缀
+const imagePrefix = '/chat-simulator';

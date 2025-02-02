@@ -36,6 +36,7 @@ jobs:
           mkdir -p dist
           cp -r public/* dist/
           cp -r resources dist/
+          cp -r uploads dist/ || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

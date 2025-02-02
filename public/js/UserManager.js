@@ -2,6 +2,7 @@ class UserManager {
     constructor() {
         this.users = [];
         this.currentUser = null;
+        this.baseURL = window.location.hostname === 'localhost' ? '' : '/chat-simulator';
         this.initAvatarUpload();
     }
 
@@ -69,14 +70,18 @@ class UserManager {
             id: Date.now(),
             name: '本人',
             isAdmin: true,
-            avatar: '/resources/avatars/avatar_1.svg'
+            avatar: window.location.hostname === 'localhost' 
+                ? '/resources/avatars/avatar_1.svg'
+                : '/chat-simulator/resources/avatars/avatar_1.svg'
         };
         
         const otherUser = {
             id: Date.now() + 1,
             name: '其他人',
             isAdmin: false,
-            avatar: '/resources/avatars/avatar_2.svg'
+            avatar: window.location.hostname === 'localhost'
+                ? '/resources/avatars/avatar_2.svg'
+                : '/chat-simulator/resources/avatars/avatar_2.svg'
         };
 
         this.users = [admin, otherUser];
@@ -88,7 +93,7 @@ class UserManager {
             id: Date.now(),
             name: `用户${this.users.length + 1}`,
             isAdmin: false,
-            avatar: `/resources/avatars/avatar_${Math.floor(Math.random() * 20) + 1}.svg`
+            avatar: `${this.baseURL}/resources/avatars/avatar_${Math.floor(Math.random() * 20) + 1}.svg`
         };
         
         this.users.push(user);
