@@ -12,6 +12,11 @@
     margin: 8px 15px;
 }
 
+/* 修正本人消息的样式 */
+.message.sent {
+    flex-direction: row-reverse;
+}
+
 .message .avatar {
     width: 35px;
     height: 35px;
@@ -22,6 +27,7 @@
 .message-content {
     max-width: 70%;
     margin: 0 12px;
+    position: relative;
 }
 
 .message-content span {
@@ -32,16 +38,38 @@
     line-height: 1.4;
     word-break: break-all;
     background: #fff;
+    position: relative;
 }
 
-.message.sent {
-    flex-direction: row-reverse;
+/* 其他人消息的小角 */
+.message:not(.sent) .message-content span::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    transform: rotate(45deg);
 }
 
+/* 本人消息的样式和小角 */
 .message.sent .message-content span {
     background: #95ec69;
 }
 
+.message.sent .message-content span::before {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    background: #95ec69;
+    transform: rotate(45deg);
+}
+
+/* 图片消息样式 */
 .chat-image {
     max-width: 200px;
     border-radius: 4px;
